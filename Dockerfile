@@ -3,5 +3,5 @@ WORKDIR /app
 RUN apk update
 RUN apk add wget
 RUN wget https://github.com/Yummiii/Kakushi/releases/download/latest/kakushi.$(uname -m)-musl -O /app/kakushi
-RUN chmod +x kakushi
-ENTRYPOINT [ "./kakushi" ]
+RUN chmod +x /app/kakushi
+ENTRYPOINT [ "./app/kakushi" ]
