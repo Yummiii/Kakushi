@@ -1,8 +1,8 @@
-FROM debian:latest
+FROM alpine:3.17
 WORKDIR /app
-RUN apt update && apt upgrade -y
-RUN apt install wget -y
+RUN apk update
+RUN apk add wget
 RUN echo $(uname -m)
-RUN wget https://github.com/Yummiii/Kakushi/releases/download/latest/kakushi.$(uname -m) -O /app/kakushi
-RUN chmod +x /app/kakushi
-ENTRYPOINT [ "./app/kakushi" ]
+RUN wget https://github.com/Yummiii/Kakushi/releases/download/latest/kakushi.$(uname -m)-musl -O /app/kakushi
+RUN chmod +x ./kakushi
+ENTRYPOINT [ "./kakushi" ]
